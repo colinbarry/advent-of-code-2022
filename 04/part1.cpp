@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <iostream>
-#include <numeric>
-#include <sstream>
 #include <string>
 
 int main()
