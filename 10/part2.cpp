@@ -20,18 +20,13 @@ int main()
     std::string s;
     while (std::getline(std::cin, s))
     {
-        if (s == "noop")
-        {
-            draw();
-            ++cycle;
-        }
-        else
+        draw();
+        ++cycle;
+        if (s != "noop")
         {
             int v;
             sscanf(s.c_str(), "addx %i", &v);
 
-            draw();
-            ++cycle;
             draw();
             ++cycle;
             x += v;

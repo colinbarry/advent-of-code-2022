@@ -17,23 +17,17 @@ int main()
     std::string s;
     while (std::getline(std::cin, s))
     {
-        if (s == "noop")
-        {
-            ++cycle;
-            if (isInteresting(cycle))
-                strength += cycle * x;
-        }
-        else
+        ++cycle;
+        if (isInteresting(cycle))
+            strength += cycle * x;
+
+        if (s != "noop")
         {
             int v;
             sscanf(s.c_str(), "addx %i", &v);
 
             ++cycle;
-            if (isInteresting(cycle))
-                strength += cycle * x;
-
             x += v;
-            ++cycle;
             if (isInteresting(cycle))
                 strength += cycle * x;
         }
