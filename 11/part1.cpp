@@ -131,8 +131,5 @@ int main()
                          return lhs.numInspected > rhs.numInspected;
                      });
 
-    for (auto&& each : monkeys)
-        std::cout << each.numInspected << "\n";
-
     std::cout << (monkeys[0].numInspected * monkeys[1].numInspected) << "\n";
 }
