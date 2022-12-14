@@ -67,7 +67,7 @@ int main()
         }
     }
 
-    int const yabyss = std::accumulate(rock.cbegin(),
+    int const yfloor = std::accumulate(rock.cbegin(),
                                        rock.end(),
                                        0,
                                        [](int const acc, auto const& point) {
@@ -76,7 +76,7 @@ int main()
                        + 2;
 
     auto nextMove = [&](Point const& sand) -> std::optional<Point> {
-        if (sand.second + 1 >= yabyss)
+        if (sand.second + 1 >= yfloor)
         {
             return std::nullopt;
         }
