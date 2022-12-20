@@ -73,39 +73,28 @@ int main()
 
         Rock const& rock = rocks[currRock];
 
+        auto const canMove =
+            [&](int const dx, int const dy) {
+                return std::all_of(rock.blocks.cbegin(),
+                                  rock.blocks.cend(),
+                                  [&](auto const& block) {
+                                      return testSpace(x + block.first + dx,
+                                                       y + block.second + dy);
+                                  });
+            };
+
         if (move == '<')
         {
-            const bool canMove = std::all_of(rock.blocks.cbegin(),
-                                             rock.blocks.cend(),
-                                             [&](auto const& block) {
-                                                 return testSpace(x + block.first - 1,
-                                                                  y + block.second);
-                                             });
-
-            if (canMove)
+            if (canMove(-1, 0))
                 x--;
         }
         else
         {
-            const bool canMove = std::all_of(rock.blocks.cbegin(),
-                                             rock.blocks.cend(),
-                                             [&](auto const& block) {
-                                                 return testSpace(x + block.first + 1,
-                                                                  y + block.second);
-                                             });
-
-            if (canMove)
+            if (canMove(1, 0))
                 x++;
         }
 
-        const bool canMove = std::all_of(rock.blocks.cbegin(),
-                                         rock.blocks.cend(),
-                                         [&](auto const& block) {
-                                             return testSpace(x + block.first,
-                                                              y + block.second + 1);
-                                         });
-
-        if (canMove)
+        if (canMove(0, 1))
         {
             ++y;
         }
