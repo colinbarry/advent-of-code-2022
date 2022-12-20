@@ -269,14 +269,13 @@ int main()
             if (s[0] == ' ')
                 s = s.substr(1);
 
-            auto const it = roomToId.find(s);
             byte const destRoomIndex = getRoomId(s);
             room.destinations.push_back(destRoomIndex);
         }
 
         rooms.insert(std::make_pair(thisRoomIndex, std::move(room)));
     }
-    //
+
     // Use Dijkstra's shortest path algo to calculate shortest distance to
     // each (non-broken) room from the start, and from every other
     // non-broken room.
