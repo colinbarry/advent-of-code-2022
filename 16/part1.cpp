@@ -123,7 +123,10 @@ int findBestScore()
         for (auto const& candidate : distancesFromHere)
         {
             if (1 + move.turn + candidate.second < maxTurns
-                && std::find(move.onFlows.cbegin(), move.onFlows.cend(), candidate.first) == move.onFlows.cend())
+                && std::find(move.onFlows.cbegin(),
+                             move.onFlows.cend(),
+                             candidate.first)
+                       == move.onFlows.cend())
             {
                 Move nextMove = move;
                 nextMove.turn += candidate.second + 1;
